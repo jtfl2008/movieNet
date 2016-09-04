@@ -1,0 +1,59 @@
+extends ../../layout
+
+block content
+  .container
+    .row
+      .col-md-7
+        embed(src="#{movie.flash}",allowFullScreen="true",quality="high",width="720",height="600",align="middle",type="application/x-shockwave-flash")
+        .panel.panel-default.panel-comment
+          .panel-heading
+            h3 评论区
+          .panel-body
+            ul.media-list
+              each item in comments
+                li.media
+                  .pull-left
+                    a(href="#comments",class="comment",data-cid="#{item._id}",data-tid="#{item.from._id}")
+                      img.media-object(src="data:image/png;base64,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",style="width:32px;height:32px;")
+                  .media-body
+                    h4.media-heading #{item.from.name}
+                    p #{item.content}
+                    if item.reply && item.reply.length > 0
+                      each reply in item.reply
+                        .media
+                          .pull-left
+                            a(href="#comments",class="comment",data-cid="#{item._id}",data-tid="#{reply.from._id}")
+                              img.media-object(src="data:image/png;base64,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",style="width:32px;height:32px;")
+                          .media-body
+                            h4.media-heading 
+                            | #{reply.from.name}
+                            span.text-info &nbsp;回复&nbsp;
+                            | #{reply.to.name} :
+                            p #{reply.content}
+                  hr
+            #comments
+              form#commentForm(method="POST",action="/user/comment")
+                input(type="hidden",name="comment[movie]",value="#{movie._id}")
+                if user
+                  input(type="hidden",name="comment[from]",value="#{user._id}")
+                .form-group
+                  textarea.form-control(name="comment[content]",row="3")
+                if user
+                  button.btn.btn-primary(type="submit") 提交 
+                else
+                  a.navbar-link(href="#",data-toggle="modal",data-target="#signinModal") 登录后评论  
+      .col-md-5
+        dl.dl-horizontal
+          dt 电影名字
+          dd= movie.title
+          dt 导演
+          dd= movie.doctor
+          dt 国家
+          dd= movie.country
+          dt 语言
+          dd= movie.language
+          dt 上映年份
+          dd= movie.year
+          dt 简介
+          dd= movie.summary
+  script(src="/javascripts/detail.js")
